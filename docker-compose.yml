@@ -1,0 +1,31 @@
+version: "3"
+services:
+  api:
+    container_name: maxmilhas_test
+    image: maxmilhas:1.0.0
+    restart: always
+    build: .
+    ports:
+      - "3001:3001"
+    environment:
+      NODE_ENV: "development"
+      PORT: "3001"
+      MONGO_DATABASE_URI: "mongodb://mongo:27017/maxmilhas"
+      MONGO_DATABASE_URI_TEST: "mongodb://mongo:27017/maxmilhas_test"
+      MONGO_DATABASE_NAME: "maxmilhas"
+      MONGO_DATABASE_NAME_TEST: "maxmilhas_test"
+      FILE_PATH: "./request-file/amount.txt"
+      CPF_COLLECTION: "CPF"
+      LOGGER_LEVEL: "trace"
+      BACKUP_FILE_LOG: "/logs"
+    links:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    logging:
+      driver: none
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27017:27017"

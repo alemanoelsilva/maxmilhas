@@ -1,0 +1,57 @@
+{
+  "name": "maxmilhas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "test:coverage": "NODE_ENV=test jest --silent --runInBand --coverage --detectOpenHandles ./**/**/*.spec.js",
+    "test:unit": "NODE_ENV=test jest --coverage --runInBand --detectOpenHandles ./**/**/*.spec.js",
+    "test": "npm run lint && npm run test:coverage",
+    "lint": "eslint *.js .",
+    "lint:fix": "eslint --fix *.js ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bunyan": "^1.8.14",
+    "bunyan-rotating-file-stream": "^1.6.3",
+    "cors": "^2.8.5",
+    "cpf-cnpj-validator": "^1.0.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "influx": "^5.7.0",
+    "jest": "^26.6.3",
+    "joi": "^17.3.0",
+    "moment": "^2.29.1",
+    "mongodb": "^3.6.4",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.0",
+    "jest-plugin-context": "^2.9.0"
+  },
+  "jest": {
+    "verbose": true,
+    "testURL": "http://localhost/",
+    "collectCoverageFrom": [
+      "v1/**/*.js",
+      "!node_modules/**",
+      "!config/**",
+      "!middlewares/**"
+    ],
+    "coverageReporters": [
+      "text",
+      "text-summary",
+      "html"
+    ],
+    "setupFiles": [
+      "jest-plugin-context/setup"
+    ]
+  }
+}

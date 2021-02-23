@@ -1,0 +1,5 @@
+/v1/**/*.spec.js
+/coverage/**
+/data/**
+/request-file/**
+/request-file/**
