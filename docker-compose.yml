@@ -1,7 +1,7 @@
 version: "3"
 services:
   api:
-    container_name: maxmilhas_test
+    container_name: maxmilhas_coding_test
     image: maxmilhas:1.0.0
     restart: always
     build: .
